@@ -1,0 +1,91 @@
+name: base
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - jupyterlab
+  - nbdime
+  - unixodbc
+
+  # Jupyter Plugins
+  - jupyter-archive
+  - jupyterlab-git
+  - jupyterlab-variableinspector
+  
+  # R Core Modules
+  - r-base
+  - r-devtools
+  - r-irkernel
+  - r-shiny
+  - r-crayon
+  - r-rmarkdown
+  - r-bootstrap
+  - r-htmlwidgets
+  
+  # Databases and Services
+  - r-rodbc
+  - r-rsqlite
+  - r-rcurl
+  - r-htmltools
+  
+  - r-webshot
+  - r-e1071
+  
+  # Data wrangling
+  - r-tidyverse
+  # - r-plyr=1.8
+  - r-forecast
+
+  # ggplot extras
+  #    from ggplot2 book
+  - r-patchwork
+  - r-paletteer
+  - r-ggrepel
+  - r-gghighlight
+  - r-ggnewscale
+  - r-ggforce
+  - r-concaveman
+  - r-ggtext 
+  - r-latex2exp
+  - r-dendextend
+
+  # Analytics
+  - r-tidymodels
+  - r-corrr
+  - r-infer
+  - r-dagitty
+  
+  # extra functions for time series
+  - r-zoo
+
+  # Text analysis tools
+  - r-tidytext
+  - r-hunspell
+  - r-wordcloud 
+  - r-wordcloud2
+  - r-pdftools
+  
+  # Packages that cannot get installed via anaconda 
+
+  # inofficial package
+  # - r-docxtractr 
+ 
+ # Machine Learning
+  #    - r-randomforest
+  # - r-caret
+  
+  # Data sets
+  # - r-car
+  # - r-nycflights13=1.0
+  # - r-cardata
+  
+  # Extras for external interactions
+  # - r-sparklyr
+  # - r-googleformr
+
+  # Testing and assessment 
+  # - r-testthat
+  # - r-lintr
+  
+  # Visualization 
+  # - r-hexbin
