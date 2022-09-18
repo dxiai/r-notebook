@@ -15,6 +15,26 @@ This version builds from the upstream `base-notebook:latest` rather than extendi
 
 You find a full list of included R-libraries in the `packages.yml` file
 
+## Run at Home
+
+On MacOS
+
+```
+docker run -it -p 8888:8888 -v ~/Dokumente:/home/jovyan/ ghcr.io/dxiai/r-notebook:latest
+```
+
+On Windows
+
+```
+docker run -it --rm -p 8888:8888 -v Dokumente:/home/jovyan/ ghcr.io/dxiai/r-notebook:latest
+```
+
+On Linux
+
+```
+docker run -it -p 8888:8888 -v ~/daten:/home/jovyan/ ghcr.io/dxiai/r-notebook:latest
+```
+
 ## Build
 
 ***IMPORTANT*** This Repository has automatic docker images built with github actions. **Under normal circumstances it is not necessary to push new images to the registry**!

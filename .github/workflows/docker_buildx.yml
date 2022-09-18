@@ -43,7 +43,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Docker meta
         id: image_builder # you'll use this in the next step
-        uses: docker/metadata-action@v3
+        uses: docker/metadata-action@v4
         with:
           # list of Docker images to use as base name for tags
           images: |
@@ -52,6 +52,7 @@ jobs:
           tags: |
             type=ref,event=branch
             type=ref,event=pr
+            type=ref,event=tag
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
             type=semver,pattern={{major}}
