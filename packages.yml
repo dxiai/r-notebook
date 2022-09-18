@@ -19,7 +19,9 @@ dependencies:
   - r-shiny
   - r-crayon
   - r-rmarkdown
-  - r-bootstrap
+  - r-boot
+  # legacy package
+  # - r-bootstrap
   - r-htmlwidgets
   
   # Databases and Services
