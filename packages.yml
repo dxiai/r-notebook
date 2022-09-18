@@ -52,6 +52,7 @@ dependencies:
   - r-dendextend
 
   # Analytics
+  - r-cluster
   - r-tidymodels
   - r-corrr
   - r-infer
