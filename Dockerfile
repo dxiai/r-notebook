@@ -46,27 +46,22 @@ COPY packages.yml .
 # Install the very latest jupyterlab and its environment
 # The following steps install important R packages
 
-# official containers use the newer mamba tool over conda. However, mamba does not accept conda's package file format. 
 RUN echo "conda 0030-0" && \
     #whoami && \
     #cat /etc/passwd | grep $NB_UID && \
     #ls -l /opt/ /opt/conda/ && \
     #conda uninstall --quiet --yes 'jupyterlab' && \
-    conda env update -n base --file packages.yml && \
-    conda clean --all -f -y && \
+    mamba env update -n base --file packages.yml && \
+    mamba clean --all -f -y && \
+    rm packages.yml && \
     fix-permissions $CONDA_DIR && \
-    fix-permissions "/home/${NB_USER}" && \
-    rm packages.yml
+    fix-permissions "/home/${NB_USER}"
 
-# Install R extensions for google services
-
-# Note that we may want to shift to googlesheets4 if it is official
-# https://github.com/tidyverse/googlesheets4 
-
-# ggwordcloud is a ggplot compliant interfaces for r-wordcloud2 
+# Extra tools that are not part of anaconda
 
 # docxtractor is a tool for importing labelled interview transcriptions in word files 
-RUN Rscript -e 'install.packages(c("googlesheets4", "ggwordcloud", "docxtractr", "ggdag"), repos= "https://stat.ethz.ch/CRAN/")'
+# ggdag is a helper for plotting dagitty structures
+RUN Rscript -e 'install.packages(c("docxtractr", "ggdag"), repos= "https://stat.ethz.ch/CRAN/")'
 
 ## The following lines may become useful in the future if-when JL has proper language support.
 

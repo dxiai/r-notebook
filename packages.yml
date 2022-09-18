@@ -29,6 +29,9 @@ dependencies:
   - r-rsqlite
   - r-rcurl
   - r-htmltools
+
+  # read data from google spreadsheets
+  - r-googlesheets4
   
   - r-webshot
   - r-e1071
@@ -50,6 +53,9 @@ dependencies:
   - r-ggtext 
   - r-latex2exp
   - r-dendextend
+  - r-tidygraph
+  - r-igraph
+  - r-ggraph
 
   # Analytics
   - r-cluster
@@ -67,7 +73,9 @@ dependencies:
   - r-wordcloud 
   - r-wordcloud2
   - r-pdftools
-  
+
+  - r-ggwordcloud
+
   # Packages that cannot get installed via anaconda 
 
   # inofficial package
