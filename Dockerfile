@@ -42,6 +42,7 @@ RUN echo "v0029-1" && \
 USER $NB_UID
 
 COPY packages.yml .
+COPY beispieldb.sqlite3 /usr/local/share/data/
 
 # Install the very latest jupyterlab and its environment
 # The following steps install important R packages
