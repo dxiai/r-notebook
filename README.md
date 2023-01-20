@@ -44,11 +44,13 @@ docker run -it -p 8888:8888 -v ~/daten:/home/jovyan/ ghcr.io/dxiai/r-notebook:la
 ## Troubleshooting
 
 If you run into authentication problems, do these two steps:
-# Logout the `github` account 
+
+Logout the `github` account 
 ```
 logout ghcr.io  
 ```
-# Use a new **directory`location** like `/code/jovyan/` and load/run the specific image version dated at **v2022.09.19**
+
+Use a new **directory`location** like `/code/jovyan/` and load/run the specific image version dated at **v2022.09.19**
 ```
 docker run -it -p 8888:8888 -v ~/code/jovyan/ ghcr.io/dxiai/r-notebook:v2022.09.19 
 ```
