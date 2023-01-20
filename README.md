@@ -41,6 +41,18 @@ On Linux
 docker run -it -p 8888:8888 -v ~/daten:/home/jovyan/ ghcr.io/dxiai/r-notebook:latest
 ```
 
+## Troubleshooting
+
+If you run into authentication problems, do these two steps:
+# Logout the `github` account 
+```
+logout ghcr.io  
+```
+# Use a new **directory`location** like `/code/jovyan/` and load/run the specific image version dated at **v2022.09.19**
+```
+docker run -it -p 8888:8888 -v ~/code/jovyan/ ghcr.io/dxiai/r-notebook:v2022.09.19 
+```
+
 ## Build
 
 ***IMPORTANT*** This Repository has automatic docker images built with github actions. **Under normal circumstances it is not necessary to push new images to the registry**!
