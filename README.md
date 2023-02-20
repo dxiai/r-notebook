@@ -45,17 +45,27 @@ docker run -it -p 8888:8888 -v ~/daten:/home/jovyan/ ghcr.io/dxiai/r-notebook:la
 
 If you run into authentication problems, do these two steps:
 
-Logout the `github` account 
+Logout the `github` account. Normally this is not necessary, because no one should not log into GitHubs container registry, directly. 
+
 ```
 logout ghcr.io  
 ```
 
-Use a new **directory location** like `/code/jovyan/` and load/run the specific image version dated at **v2022.09.19**
+- Use a local **directory location** on **the host**. E.g., `~/code/data/`.
+- Use the specific image version at `v2022.09.19` instead of `latest`.
+
 ```
-docker run -it -p 8888:8888 -v ~/code/jovyan/ ghcr.io/dxiai/r-notebook:v2022.09.19 
+docker run -it -p 8888:8888 -v ~/code/data/ ghcr.io/dxiai/r-notebook:v2022.09.19 
 ```
 
-## Build
+Alternatively, be specific on the internal mount point of the data directory. 
+
+```
+docker run -it -p 8888:8888 -v ~/code/data/:/home/jovyan ghcr.io/dxiai/r-notebook:v2022.09.19 
+```
+
+
+## Build for local testing
 
 ***IMPORTANT*** This Repository has automatic docker images built with github actions. **Under normal circumstances it is not necessary to push new images to the registry**!
 
