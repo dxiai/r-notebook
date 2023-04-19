@@ -50,7 +50,7 @@ If you run into authentication problems, do these two steps:
 Logout the `github` account. Normally this is not necessary, because no one should not log into GitHubs container registry, directly. 
 
 ```
-logout ghcr.io  
+docker logout ghcr.io  
 ```
 
 - Use a local **directory location** on **the host**. E.g., `~/code/data/`.
