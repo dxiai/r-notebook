@@ -24,9 +24,11 @@ docker run -it -p 8888:8888 -v ~/Dokumente:/home/jovyan/ ghcr.io/dxiai/r-noteboo
 ```
 
 When the following error occurs: "docker pull ghcr.io/dxiai/r-notebook:latest  
-Error response from daemon: Head "https://ghcr.io/v2/dxiai/r-notebook/manifests/latest": denied: denied", then the Docker command must be started in admin mode:
+Error response from daemon: Head "https://ghcr.io/v2/dxiai/r-notebook/manifests/latest": denied: denied", then
+You must first logout ghcr.io unsing `docker logout`.
+
 ```
-sudo docker run -it -p 8888:8888 -v ~/Dokumente:/home/jovyan/ ghcr.io/dxiai/r-notebook:latest
+docker run -it -p 8888:8888 -v ~/Dokumente:/home/jovyan/ ghcr.io/dxiai/r-notebook:latest
 ```
 
 On Windows
