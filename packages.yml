@@ -20,8 +20,6 @@ dependencies:
   - r-crayon
   - r-rmarkdown
   - r-boot
-  # legacy package
-  # - r-bootstrap
   - r-htmlwidgets
   
   # Databases and Services
@@ -30,73 +28,14 @@ dependencies:
   - r-rcurl
   - r-htmltools
 
-  # read data from google spreadsheets
-  - r-googlesheets4
-  
+  # read data from google spreadsheets 
   - r-webshot
   - r-e1071
   
   # Data wrangling
   - r-tidyverse
-  # - r-plyr=1.8
-  - r-forecast
-
-  # ggplot extras
-  #    from ggplot2 book
-  - r-patchwork
-  - r-paletteer
-  - r-ggrepel
-  - r-gghighlight
-  - r-ggnewscale
-  - r-ggforce
-  - r-concaveman
-  - r-ggtext 
-  - r-latex2exp
-  - r-dendextend
-  - r-tidygraph
-  - r-igraph
-  - r-ggraph
-
-  # Analytics
-  - r-cluster
   - r-tidymodels
-  - r-corrr
-  - r-infer
-  - r-dagitty
+  - r-forecast
   
   # extra functions for time series
   - r-zoo
-
-  # Text analysis tools
-  - r-tidytext
-  - r-hunspell
-  - r-wordcloud 
-  - r-wordcloud2
-  - r-pdftools
-
-  - r-ggwordcloud
-
-  # Packages that cannot get installed via anaconda 
-
-  # inofficial package
-  # - r-docxtractr 
- 
- # Machine Learning
-  #    - r-randomforest
-  # - r-caret
-  
-  # Data sets
-  # - r-car
-  # - r-nycflights13=1.0
-  # - r-cardata
-  
-  # Extras for external interactions
-  # - r-sparklyr
-  # - r-googleformr
-
-  # Testing and assessment 
-  # - r-testthat
-  # - r-lintr
-  
-  # Visualization 
-  # - r-hexbin
