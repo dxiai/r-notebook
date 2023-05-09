@@ -5,10 +5,12 @@ car
 caret 
 cluster
 concaveman
+corrplot
 corrr
 dagitty
 dendextend 
 docxtractr 
+flextable
 ggdag 
 ggforce 
 gghighlight 
@@ -17,7 +19,8 @@ ggrepel
 ggtext 
 ggwordcloud 
 googlesheets4 
-gt 
+gt
+gtsummary
 hunspell 
 igraph 
 infer 

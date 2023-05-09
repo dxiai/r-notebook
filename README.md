@@ -36,7 +36,8 @@ The following R-packages are installed via the package management:
 - caret
 - cluster
 - concaveman
-- corrr
+- [corrplot](https://github.com/taiyun/corrplot)
+- [corrr](https://corrr.tidymodels.org/)
 - crayon (via anaconda)
 - dagitty
 - dendextend
@@ -53,6 +54,8 @@ The following R-packages are installed via the package management:
 - ggwordcloud
 - [googlesheets4](https://googlesheets4.tidyverse.org/)
 - [gt](https://gt.rstudio.com/)
+- [flextable](https://ardata-fr.github.io/flextable-book/)
+- gtsummary
 - htmlwidgets (via anaconda)
 - hunspell
 - igraph
@@ -76,11 +79,11 @@ The following R-packages are installed via the package management:
 
 The complete list of packages that are available for the code are: 
 
-> askpass assertthat backports base base64enc bit bit64 bitops blob boot brew brio broom bslib cachem callr caTools cellranger class classInt cli clipr cluster codetools colorspace commonmark compiler concaveman conflicted corrr cpp11 crayon credentials crosstalk curl dagitty data.table datasets DBI dbplyr dendextend desc devtools dials DiceDesign dichromat diffobj digest docxtractr downlit dplyr dtplyr e1071 ellipsis evaluate fansi farver fastmap fontawesome forcats foreach forecast fracdiff fs furrr future future.apply gameofthrones gargle gclus generics gert ggdag ggforce gghighlight ggnewscale ggplot2 ggraph ggrepel ggtext ggthemes ggwordcloud gh gitcreds globals glue googledrive googlesheets4 gower GPfit gplots graphics graphlayouts grDevices grid gridExtra gridtext gtable gtools hardhat harrypotter haven highr hms htmltools htmlwidgets httpuv httr hunspell ids igraph infer ini ipred IRdisplay IRkernel isoband ISOcodes iterators janeaustenr jcolors jpeg jquerylib jsonlite KernSmooth knitr labeling later latex2exp lattice lava lazyeval lhs lifecycle listenv lmtest lubridate magrittr manipulateWidget mapproj maps markdown MASS Matrix memoise methods mgcv mime miniUI modeldata modelr munsell nlme nnet numDeriv oompaBase openssl paletteer palr pals parallel parallelly parsnip patchwork pbdZMQ pdftools pillar pkgbuild pkgconfig pkgdown pkgload plogr png polyclip praise prettyunits prismatic processx prodlim profvis progress progressr promises proxy ps purrr qap qpdf quadprog quantmod R6 ragg rappdirs rcmdcheck RColorBrewer Rcpp RcppArmadillo RcppEigen RCurl readr readxl recipes registry rematch rematch2 remotes repr reprex rgl rlang rmarkdown RODBC roxygen2 rpart rprojroot rsample RSQLite rstudioapi rversions rvest s2 sass scales scico selectr seriation sessioninfo sf shiny shinyjs slider SnowballC sourcetools splines SQUAREM stats stats4 stopwords stringi stringr survival sys systemfonts tcltk testthat textshaping tibble tidygraph tidymodels tidyr tidyselect tidytext tidyverse timeDate tinytex tokenizers tools tseries TSP TTR tune tweenr tzdb units urca urlchecker usethis utf8 utils uuid V8 vctrs viridis viridisLite vroom waldo warp webshot whisker withr wk wordcloud wordcloud2 workflows workflowsets xfun xml2 xopen xtable xts yaml yardstick zip zoo
+> askpass assertthat backports base base64enc bit bit64 bitops blob boot brew brio broom bslib cachem callr caTools cellranger class classInt cli clipr cluster codetools colorspace commonmark compiler concaveman conflicted corrr cpp11 crayon credentials crosstalk curl dagitty data.table datasets DBI dbplyr dendextend desc devtools dials DiceDesign dichromat diffobj digest docxtractr downlit dplyr dtplyr e1071 ellipsis evaluate fansi farver fastmap fontawesome forcats foreach forecast fracdiff fs furrr future future.apply gameofthrones gargle gclus generics gert ggdag ggforce gghighlight ggnewscale ggplot2 ggraph ggrepel ggtext ggthemes ggwordcloud gh gitcreds globals glue googledrive googlesheets4 gower GPfit gplots graphics graphlayouts grDevices grid gridExtra gridtext gtable gtools hardhat harrypotter haven highr hms htmltools htmlwidgets httpuv httr hunspell ids igraph infer ini ipred IRdisplay IRkernel isoband ISOcodes iterators janeaustenr jcolors jpeg jquerylib jsonlite KernSmooth knitr labeling later latex2exp lattice lava lazyeval lhs lifecycle listenv lmtest lubridate magrittr manipulateWidget mapproj maps markdown MASS Matrix memoise methods mgcv mime miniUI modeldata modelr munsell nlme nnet numDeriv oompaBase openssl paletteer palr pals parallel parallelly parsnip patchwork pbdZMQ pdftools pillar pkgbuild pkgconfig pkgdown pkgload plogr png polyclip praise prettyunits prismatic processx prodlim profvis progress progressr promises proxy ps purrr qap qpdf quadprog quantmod R6 ragg rappdirs rcmdcheck RColorBrewer Rcpp RcppArmadillo RcppEigen RCurl readr readxl recipes registry rematch remtch2 remotes repr reprex rgl rlang rmarkdown RODBC roxygen2 rpart rprojroot rsample RSQLite rstudioapi rversions rvest s2 sass scales scico selectr seriation sessioninfo sf shiny shinyjs slider SnowballC sourcetools splines SQUAREM stats stats4 stopwords stringi stringr survival sys systemfonts tcltk testthat textshaping tibble tidygraph tidymodels tidyr tidyselect tidytext tidyverse timeDate tinytex tokenizers tools tseries TSP TTR tune tweenr tzdb units urca urlchecker usethis utf8 utils uuid V8 vctrs viridis viridisLite vroom waldo warp webshot whisker withr wk wordcloud wordcloud2 workflows workflowsets xfun xml2 xopen xtable xts yaml yardstick zip zoo
 
 ## Run at Home 🏠💻
 
-This docker image is designed to run on Intel and ARM-based systems that has [Docker](https://docker.com) installed. This allows you to run this image on the most recent Mac and Windows machines - and of course Linux.
+This docker image is designed to run on Intel and ARM-based systems that has [Docker or Docker Desktop](https://docker.com) installed. This allows you to run this image on the most recent Mac and Windows machines - and of course on Linux. 
 
 ### On MacOS
 
