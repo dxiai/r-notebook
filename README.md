@@ -142,22 +142,19 @@ docker run -it -p 8888:8888 -v ~/code/data/:/home/jovyan ghcr.io/dxiai/r-noteboo
 For an updated release change the LABEL version number in the `Dockerfile`. Normally, this is fine. 
 
 ```
-> BUILD_DATE=$DATE_betacounter; docker build --pull -t ghcr.io/dxiai/r-notebook:v{$BUILD_DATE} -t ghcr.io/dxiai/r-notebook:latest .
+> docker build --pull -t r-notebook:local .
 ```
 
 Important: `--pull` forces docker to pull a newer version of the base image for the same tag. 
 
-**We use github actions to create the docker images. Never push local builds to the registry.**
-
-In the rare case that you want to provide local builds, push only releases using
-
-```
-> docker push ghcr.io/dxiai/r-notebook:v{$BUILD_DATE}
-> docker push ghcr.io/dxiai/r-notebook:latest
-```
+The local build takes about 15 minutes on a modern machine. A full build on Github Actions takes about 5-6 **hours**!
 
 ## Customize
 
-Edit the `package.yml` file to customize the conda packages.
+For customization it is not necessary to alter the Dockerfile. All dependencies are managed in package files. 
 
-Edit the `package.r` file to customise the installed CRAN packages.
+- `packages.txt` lists the required debian packages. Any package listed here will be slightly outdated as the minimal notebook image is based on debian stable.
+- `packages.yml` lists the conda packages. This file contains any Jupyter related packages as well as the core R packages that are needed for the IRKernel. Jupyter related packages are much more up-to-date than the debian packages. 
+- `packages.r` holds the list of common CRAN packages. All R-Packages that are not listed in package.yml have to be listed here, as the conda-repositories do not provide well-maintained versions of these packages. All packages in this file will be compiled during build time.
+
+> ***`packages.r` and `packages.txt` don't allow comments!***

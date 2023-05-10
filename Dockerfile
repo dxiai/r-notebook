@@ -10,44 +10,19 @@ LABEL version="31"
 
 USER root
 
+COPY packages.txt .
+
 # R pre-requisites
 RUN echo "v0029-1" && \
     apt-get update --yes && \
-    apt-get install -y --no-install-recommends \
-    fonts-dejavu \
-    unixodbc \
-    unixodbc-dev \
-    r-cran-rodbc \
-    gfortran \
-    gcc \
-    # From minimal notebook
-    build-essential \
-    git \
-    unzip \
-    tzdata \
-    nano \
-    jed \
-    hunspell \
-    hunspell-de-de-frami \
-    hunspell-de-ch-frami \
-    hunspell-en-gb \
-    hunspell-en-us \
-    # poppler-utils \
-    # needed by the ragg package 
-    language-pack-de \
-    libfreetype6-dev \
-    libpng-dev \
-    libtiff5-dev \
-    libjpeg-dev \
-    && \
+    apt-get install -y --no-install-recommends $(cat packages.txt) && \
     apt-get autoremove --purge && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* packages.txt
 
 USER $NB_UID
 
 COPY packages.yml packages.r .
-COPY beispieldb.sqlite3 /usr/local/share/data/
 
 # Install the very latest jupyterlab and its environment
 # The following steps install important R packages
@@ -68,6 +43,8 @@ RUN echo "conda 0030-0" && \
     fix-permissions $CONDA_DIR && \
     fix-permissions "/home/${NB_USER}" && \
     jupyter labextension disable "@jupyterlab/apputils-extension:announcements"
+
+COPY beispieldb.sqlite3 /usr/local/share/data/
 
 ## The following lines may become useful in the future if-when JL has proper language support.
 
