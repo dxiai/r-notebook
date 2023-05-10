@@ -18,7 +18,6 @@ dependencies:
   - r-irkernel
   - r-shiny
   - r-crayon
-  - r-rmarkdown
   - r-boot
   - r-htmlwidgets
   
@@ -27,15 +26,9 @@ dependencies:
   - r-rsqlite
   - r-rcurl
   - r-htmltools
-
-  # read data from google spreadsheets 
-  - r-webshot
+  # Datamodelling and visualisation
   - r-e1071
-  
-  # Data wrangling
   - r-tidyverse
   - r-tidymodels
   - r-forecast
   
-  # extra functions for time series
-  - r-zoo

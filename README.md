@@ -44,6 +44,7 @@ The following R-packages are installed via the package management:
 - [devtools](https://devtools.r-lib.org/) (via anaconda)
 - docextractor
 - e1071 (via anaconda)
+- [flextable](https://ardata-fr.github.io/flextable-book/)
 - forecast (via anaconda)
 - ggdag 
 - ggforce
@@ -54,14 +55,14 @@ The following R-packages are installed via the package management:
 - ggwordcloud
 - [googlesheets4](https://googlesheets4.tidyverse.org/)
 - [gt](https://gt.rstudio.com/)
-- [flextable](https://ardata-fr.github.io/flextable-book/)
 - gtsummary
 - htmlwidgets (via anaconda)
 - hunspell
 - igraph
 - infer
 - latex2exp
-- markdown (via anaconda)
+- [ragg](https://ragg.r-lib.org/)
+- rmarkdown
 - paletteer
 - patchwork
 - pdftools
@@ -74,8 +75,7 @@ The following R-packages are installed via the package management:
 - [tidymodels](https://www.tidymodels.org/) (via anaconda)
 - tidytext
 - [tidyverse](https://www.tidyverse.org/) (via anaconda)
-- webshot (via anaconda)
-- zoo (via anaconda)
+- zoo
 
 The complete list of packages that are available for the code are: 
 
@@ -115,7 +115,7 @@ docker run -it -p 8888:8888 -v ~/daten:/home/jovyan/ ghcr.io/dxiai/r-notebook:la
 
 If you run into authentication problems, do these two steps:
 
-Logout the `github` account. Normally this is not necessary, because no one should not log into GitHubs container registry, directly. 
+Logout the `github` account. Normally this is not necessary, because nobody should log into GitHubs container registry, directly. 
 
 ```
 docker logout ghcr.io  

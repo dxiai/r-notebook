@@ -28,9 +28,13 @@ latex2exp
 paletteer 
 patchwork 
 pdftools 
+ragg
 randomforrest 
+rmarkdown
+stringi
 tidygraph 
 tidytext
+zoo
 "
 
 install.packages(

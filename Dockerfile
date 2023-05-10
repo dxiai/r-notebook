@@ -33,7 +33,12 @@ RUN echo "v0029-1" && \
     hunspell-en-gb \
     hunspell-en-us \
     # poppler-utils \
+    # needed by the ragg package 
     language-pack-de \
+    libfreetype6-dev \
+    libpng-dev \
+    libtiff5-dev \
+    libjpeg-dev \
     && \
     apt-get autoremove --purge && \
     apt-get clean && \
