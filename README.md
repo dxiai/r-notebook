@@ -149,6 +149,24 @@ Important: `--pull` forces docker to pull a newer version of the base image for 
 
 The local build takes about 15 minutes on a modern machine. A full build on Github Actions takes about 5-6 **hours**!
 
+### Building on ARM (Apple M1/M2)
+
+The build process is platform dependent. The github process builds versions for ARM and AMD64/Intel platform. However, the standard deployment in the cloud is on the Linux/amd64 platform. As the build process slightly differs, it is necessary to test the AMD64 build locally. 
+
+```bash
+> docker build --platform linux/amd64 --pull -t r-notebook:localamd .
+```
+
+> On MacOS with M1 or M2 chips, ensure that docker has the *experimental* Rosetta support enabled. Otherwise the build process takes about a day. With Rosetta enabled, the build takes about 5 minutes longer than the native build.
+
+Run this platform image locally by using the following command. 
+
+```bash
+> docker run -it --rm -p 8888:8888 --plattform linux/amd64 r-notebook:localamd
+```
+
+All relevant libraries must load without errors.
+
 ## Customize
 
 For customization it is not necessary to alter the Dockerfile. All dependencies are managed in package files. 
