@@ -6,6 +6,16 @@ dependencies:
   - jupyterlab
   - nbdime
   - unixodbc
+  - udunits2
+  - openssl
+
+  # poppler is a dependency of pdftools
+  # - poppler
+
+  # dependencies of ragg
+  # - gdal
+  # - proj
+  # - libjpeg-turbo
 
   # Jupyter Plugins
   - jupyter-archive
@@ -20,15 +30,19 @@ dependencies:
   - r-crayon
   - r-boot
   - r-htmlwidgets
+  - r-systemfonts
   
   # Databases and Services
   - r-rodbc
   - r-rsqlite
   - r-rcurl
   - r-htmltools
+  # no arm version, plain install fails on arm
+  # - r-pdftools
   # Datamodelling and visualisation
   - r-e1071
   - r-tidyverse
   - r-tidymodels
   - r-forecast
+  # - r-ragg
   

@@ -4,13 +4,11 @@ BSDA
 car
 caret 
 cluster
-concaveman
 corrplot
 corrr
 dagitty
 dendextend 
 docxtractr 
-flextable
 ggdag 
 ggforce 
 gghighlight 
@@ -27,9 +25,6 @@ infer
 latex2exp 
 paletteer 
 patchwork 
-pdftools 
-ragg
-randomforrest 
 rmarkdown
 stringi
 tidygraph 
@@ -37,13 +32,49 @@ tidytext
 zoo
 "
 
-install.packages(
-    trimws(packages) |>
+# level2_packages = "
+# concaveman
+# flextable
+# "
+
+pkgs = trimws(packages) |>
         strsplit("\\n") |>
         unlist() |>
         lapply(trimws) |>
         unlist() |>
-        unique(),
-    repos = "https://stat.ethz.ch/CRAN/",
-    clean = TRUE
+        unique()
+
+install.packages(
+   pkgs[!(pkgs %in% installed.packages()[, "Package"])],
+   repos = "https://stat.ethz.ch/CRAN/",
+   clean = TRUE
 )
+
+# pkgs = trimws(level2_packages) |>
+#         strsplit("\\n") |>
+#         unlist() |>
+#         lapply(trimws) |>
+#         unlist() |>
+#         unique()
+
+# install.packages(
+#    pkgs[!(pkgs %in% installed.packages()[, "Package"])],
+#    repos = "https://stat.ethz.ch/CRAN/",
+#    clean = TRUE
+# )
+
+# Once pak building does not fail on basic packages, use this:
+#
+# install.packages(
+#         "pak",
+#         repos = sprintf("https://r-lib.github.io/p/pak/stable/%s/%s/%s",
+#         .Platform$pkgType,
+#         R.Version()$os,
+#         R.Version()$arch),
+#         clean = TRUE
+#     )
+
+# pak::pkg_install(pkgs[!(pkgs %in% installed.packages()[, "Package"])])
+
+# pak::meta_clean(force = TRUE)
+# pak::cache_clean(force = TRUE)

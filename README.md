@@ -35,7 +35,7 @@ The following R-packages are installed via the package management:
 - car
 - caret
 - cluster
-- concaveman
+- ~~concaveman~~
 - [corrplot](https://github.com/taiyun/corrplot)
 - [corrr](https://corrr.tidymodels.org/)
 - crayon (via anaconda)
@@ -44,7 +44,6 @@ The following R-packages are installed via the package management:
 - [devtools](https://devtools.r-lib.org/) (via anaconda)
 - docextractor
 - e1071 (via anaconda)
-- [flextable](https://ardata-fr.github.io/flextable-book/)
 - forecast (via anaconda)
 - ggdag 
 - ggforce
@@ -59,13 +58,12 @@ The following R-packages are installed via the package management:
 - htmlwidgets (via anaconda)
 - hunspell
 - igraph
-- infer
 - latex2exp
-- [ragg](https://ragg.r-lib.org/)
 - rmarkdown
 - paletteer
+- [pak](https://pak.r-lib.org/)
 - patchwork
-- pdftools
+- ~~pdftools (via anaconda)~~
 - randomforrest
 - rcurl (via anaconda)
 - rodbc (via anaconda)
@@ -79,7 +77,7 @@ The following R-packages are installed via the package management:
 
 The complete list of packages that are available for the code are: 
 
-> askpass assertthat backports base base64enc bit bit64 bitops blob boot brew brio broom bslib cachem callr caTools cellranger class classInt cli clipr cluster codetools colorspace commonmark compiler concaveman conflicted corrr cpp11 crayon credentials crosstalk curl dagitty data.table datasets DBI dbplyr dendextend desc devtools dials DiceDesign dichromat diffobj digest docxtractr downlit dplyr dtplyr e1071 ellipsis evaluate fansi farver fastmap fontawesome forcats foreach forecast fracdiff fs furrr future future.apply gameofthrones gargle gclus generics gert ggdag ggforce gghighlight ggnewscale ggplot2 ggraph ggrepel ggtext ggthemes ggwordcloud gh gitcreds globals glue googledrive googlesheets4 gower GPfit gplots graphics graphlayouts grDevices grid gridExtra gridtext gtable gtools hardhat harrypotter haven highr hms htmltools htmlwidgets httpuv httr hunspell ids igraph infer ini ipred IRdisplay IRkernel isoband ISOcodes iterators janeaustenr jcolors jpeg jquerylib jsonlite KernSmooth knitr labeling later latex2exp lattice lava lazyeval lhs lifecycle listenv lmtest lubridate magrittr manipulateWidget mapproj maps markdown MASS Matrix memoise methods mgcv mime miniUI modeldata modelr munsell nlme nnet numDeriv oompaBase openssl paletteer palr pals parallel parallelly parsnip patchwork pbdZMQ pdftools pillar pkgbuild pkgconfig pkgdown pkgload plogr png polyclip praise prettyunits prismatic processx prodlim profvis progress progressr promises proxy ps purrr qap qpdf quadprog quantmod R6 ragg rappdirs rcmdcheck RColorBrewer Rcpp RcppArmadillo RcppEigen RCurl readr readxl recipes registry rematch remtch2 remotes repr reprex rgl rlang rmarkdown RODBC roxygen2 rpart rprojroot rsample RSQLite rstudioapi rversions rvest s2 sass scales scico selectr seriation sessioninfo sf shiny shinyjs slider SnowballC sourcetools splines SQUAREM stats stats4 stopwords stringi stringr survival sys systemfonts tcltk testthat textshaping tibble tidygraph tidymodels tidyr tidyselect tidytext tidyverse timeDate tinytex tokenizers tools tseries TSP TTR tune tweenr tzdb units urca urlchecker usethis utf8 utils uuid V8 vctrs viridis viridisLite vroom waldo warp webshot whisker withr wk wordcloud wordcloud2 workflows workflowsets xfun xml2 xopen xtable xts yaml yardstick zip zoo
+> abind agridat askpass assertthat backports base base64enc bigD bit bit64 bitops blob boot brew brio broom broom.helpers BSDA bslib ca cachem callr car carData caret cellranger class cli clipr clock cluster codetools colorspace commonmark compiler conflicted corrplot corrr cpp11 crayon credentials curl dagitty data.table datasets DBI dbplyr dendextend desc devtools diagram dials DiceDesign diffobj digest docxtractr downlit dplyr dtplyr e1071 ellipsis evaluate fansi farver fastmap fontawesome forcats foreach forecast fracdiff fs furrr future future.apply gargle gclus generics gert ggdag ggforce gghighlight ggnewscale ggplot2 ggraph ggrepel ggtext ggwordcloud gh gitcreds globals glue googledrive googlesheets4 gower GPfit graphics graphlayouts grDevices grid gridExtra gridtext gt gtable gtsummary hardhat haven highr hms htmltools htmlwidgets httpuv httr httr2 hunspell ids igraph infer ini ipred IRdisplay IRkernel isoband iterators janeaustenr jpeg jquerylib jsonlite juicyjuice KernSmooth knitr labeling labelled later latex2exp lattice lava lhs lifecycle listenv lme4 lmtest lubridate magrittr markdown MASS Matrix MatrixModels memoise methods mgcv mime miniUI minqa modeldata modelenv ModelMetrics modelr munsell nlme nloptr nnet numDeriv openssl pak paletteer parallel parallelly parsnip patchwork pbdZMQ pbkrtest pillar pkgbuild pkgconfig pkgdown pkgload plogr plyr png polyclip praise prettyunits prismatic pROC processx prodlim profvis progress progressr promises proxy ps purrr qap quadprog quantmod quantreg R6 ragg rappdirs rcmdcheck RColorBrewer Rcpp RcppArmadillo RcppEigen RCurl reactable reactR readr readxl recipes registry rematch rematch2 remotes repr reprex reshape2 rlang rmarkdown RODBC roxygen2 rpart rprojroot rsample RSQLite rstudioapi rversions rvest sass scales selectr seriation sessioninfo shape shiny slider SnowballC sourcetools SparseM splines SQUAREM stats stats4 stringi stringr survival sys systemfonts tcltk testthat textshaping tibble tidygraph tidymodels tidyr tidyselect tidytext tidyverse timechange timeDate tinytex tokenizers tools tseries TSP TTR tune tweenr tzdb urca urlchecker usethis utf8 utils uuid V8 vctrs viridis viridisLite vroom waldo warp whisker withr workflows workflowsets xfun xml2 xopen xtable xts yaml yardstick zip zoo
 
 ## Run at Home 🏠💻
 
@@ -148,6 +146,15 @@ For an updated release change the LABEL version number in the `Dockerfile`. Norm
 Important: `--pull` forces docker to pull a newer version of the base image for the same tag. 
 
 The local build takes about 15 minutes on a modern machine. A full build on Github Actions takes about 5-6 **hours**!
+
+After building the image it is important to verify that all libraries load without errors. For this, run the image locally and call the `testlibraries.R` script within the container. 
+
+```bash
+> Rscript /usr/local/share/data/testlibraries.R
+```
+
+This script will load all libraries and returns the result of the loading process. If a library fails to load the script shows this with the message `Error library`. This normally indicates a problem during the build process. 
+
 
 ### Building on ARM (Apple M1/M2)
 
