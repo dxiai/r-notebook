@@ -3,7 +3,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - jupyterlab
+  - jupyterlab =3.6.3
   - nbdime
   - unixodbc
   - udunits2
