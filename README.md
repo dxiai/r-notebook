@@ -78,6 +78,7 @@ The following R-packages are installed via the package management:
 - igraph
 - latex2exp
 - rmarkdown
+- [rstatix](https://rpkgs.datanovia.com/rstatix/index.html)
 - paletteer
 - [pak](https://pak.r-lib.org/)
 - patchwork

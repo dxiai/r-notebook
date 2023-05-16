@@ -24,6 +24,7 @@ latex2exp
 paletteer 
 patchwork  
 rmarkdown
+rstatix
 stringi
 tidygraph 
 tidytext
