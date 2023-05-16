@@ -6,14 +6,32 @@ This container is used in DxI-Classes at the ZHAW School of Life Sciences and Fa
 
 This version of the R-Notebook contains a few extensions compared to the vanilla r-notebook.
 
-1. It ships with the latest JLab version.
+1. It ships with the latest Jupyter Lab version.
 2. It comes with git, visual help, and the variable inspector to make it more comparable with RStudio
-3. It brings many extras libraries directly baked into the container such as tidytext, pdftools, dagitty and tidymodels
-4. It drops TeX and SVG support and reduces the overall container size by almost 0.5GB
+3. It brings many extra libraries directly baked into the container such as tidytext, ~~pdftools~~, dagitty and many more.
+4. It drops TeX and SVG support and reduces the overall container size a little. 
 
 This version builds from the upstream `base-notebook:latest` rather than extending the r-notebook itself.
 
 You find a full list of included R-libraries in the `packages.yml` file
+
+## TL;DR
+
+You need to have [Docker or Docker Desktop](https://docker.com) installed on your machine.
+
+Get started with a non-persistent working directory:
+
+```bash
+docker run -it -p 8888:8888 ghcr.io/dxiai/r-notebook:latest
+```
+
+Link your working directory to the `/home/jovyan/` folder. This allows you to persist your work on your local machine. On Mac and Linux you can use the `~/` shortcut to link to your home directory. For example. 
+
+```bash
+docker run -it -p 8888:8888 -v ~/Dokumente:/home/jovyan/ ghcr.io/dxiai/r-notebook:latest
+```
+
+Windows users should better read the [Docker documentation](https://docs.docker.com/storage/bind-mounts/) on how to mount volumes.
 
 ## Batteries included 🦾
 
@@ -91,7 +109,7 @@ docker run -it -p 8888:8888 -v ~/Dokumente:/home/jovyan/ ghcr.io/dxiai/r-noteboo
 
 When the following error occurs: "docker pull ghcr.io/dxiai/r-notebook:latest  
 Error response from daemon: Head "https://ghcr.io/v2/dxiai/r-notebook/manifests/latest": denied: denied", then
-You must first logout ghcr.io using `docker logout`.
+You should try to logout from ghcr.io using `docker logout`. This is only necessary if you deploy other docker containers to github, directly.
 
 ```
 docker run -it -p 8888:8888 -v ~/Dokumente:/home/jovyan/ ghcr.io/dxiai/r-notebook:latest
@@ -145,7 +163,7 @@ For an updated release change the LABEL version number in the `Dockerfile`. Norm
 
 Important: `--pull` forces docker to pull a newer version of the base image for the same tag. 
 
-The local build takes about 15 minutes on a modern machine. A full build on Github Actions takes about 5-6 **hours**!
+The local build takes about 15 minutes per platform on a modern machine (MacBook Pro M1 Pro). A full build on Github Actions takes about 3.5-5 **hours**!
 
 After building the image it is important to verify that all libraries load without errors. For this, run the image locally and call the `testlibraries.R` script within the container. 
 
