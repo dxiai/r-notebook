@@ -215,9 +215,9 @@ Then we need to build the image for all platforms.
      --push .
 ```
 
-> **Important** When building on Apple Silicon-Macs, then Docker Desktop **MUST NOT** use the virtualization framework. The build process will fail otherwise. You find the general settings in the Docker Desktop settings.
+> **Important** When building on Apple Silicon-Macs, then Docker Desktop **MUST NOT** use the virtualization framework. This significantly increases the built-time, but otherwise the build process fails with obscure errors. You find the general settings in the Docker Desktop settings.
 
-For pushing the results to the registry, you need to login to the registry first. For the github container registry you have to [generate a classic personal access token]https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry), first. 
+For pushing the results to the registry, you need to login to the registry first. For the github container registry you have to [generate a classic personal access token](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry), first. 
 
 
 ## Customize
@@ -226,6 +226,6 @@ For customization it is not necessary to alter the Dockerfile. All dependencies 
 
 - `packages.txt` lists the required debian packages. Any package listed here will be slightly outdated as the minimal notebook image is based on debian stable.
 - `packages.yml` lists the conda packages. This file contains any Jupyter related packages as well as the core R packages that are needed for the IRKernel. Jupyter related packages are much more up-to-date than the debian packages. 
-- `packages.r` holds the list of common CRAN packages. All R-Packages that are not listed in package.yml have to be listed here, as the conda-repositories do not provide well-maintained versions of these packages. All packages in this file will be compiled during build time.
+- `packages_pak.r` holds the list of common CRAN packages. All R-Packages that are not listed in package.yml have to be listed here, as the conda-repositories do not provide well-maintained versions of these packages. This script will install all packages using `pak`. Nevertheless, all packages will be compiled during build time. Note that `pak` will automatically update outdated conda R-packages. Unfortunately, there is no way to force `pak` to refrain from this behavior.
 
-> ***`packages.r` and `packages.txt` don't allow comments!***
+> ***`packages_pak.r` and `packages.txt` don't allow comments in the package list!***
