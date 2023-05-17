@@ -193,6 +193,33 @@ Run this platform image locally by using the following command.
 
 All relevant libraries must load without errors.
 
+## Building for multiple platforms
+
+In some cases we do not want to wait for github actions and build the image locally for all platforms. This is possible with docker's buildx feature. The following example sets up a default builder for all platforms.
+
+```bash
+> docker buildx create --use 
+```
+
+Then we need to build the image for all platforms. 
+
+```bash
+> docker buildx build \
+    --platform linux/amd64,linux/arm64 \
+    --pull \
+    --progress plain \
+     -t r-notebook:sha-gitsha1 \
+     -t r-notebook:main \
+     -t r-notebook:vBUILDDATE \
+     -t r-notebook:latest \
+     --push .
+```
+
+> **Important** When building on Apple Silicon-Macs, then Docker Desktop **MUST NOT** use the virtualization framework. The build process will fail otherwise. You find the general settings in the Docker Desktop settings.
+
+For pushing the results to the registry, you need to login to the registry first. For the github container registry you have to [generate a classic personal access token]https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry), first. 
+
+
 ## Customize
 
 For customization it is not necessary to alter the Dockerfile. All dependencies are managed in package files. 
